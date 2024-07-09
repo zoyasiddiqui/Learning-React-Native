@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { SplashScreen, Slot, Stack } from "expo-router";
+import { SplashScreen, Slot, Stack} from "expo-router";
 import { useFonts } from "expo-font"
 import { useEffect } from 'react';
 
@@ -26,18 +25,18 @@ const RootLayout = () => {
 
     if (!fontsLoaded && !error) return null;
 
-// this is the first way to render a screen, slot renders the first child route 
+// this is the first way to render a screen slot renders the first child route 
 //   return <Slot/>
 
 // this is the second way, with Stack
     return (
         <Stack>
-            <Stack.Screen name="index"/>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tab)" options={{ headerShown: false }} />
+            {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false}} /> */}
         </Stack>
     )
-
 }
 
 export default RootLayout
-
-const styles = StyleSheet.create({})
